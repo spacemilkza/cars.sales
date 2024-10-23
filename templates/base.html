@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>{% block title %}Homepage{% endblock %}</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
+    {% block style %}
+    <style>
+        body {
+            font-family: "Inter", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 400;
+            font-style: normal;
+            font-variation-settings:
+                "slnt" 0;
+        }
+    </style>
+    {% endblock %}
+</head>
+
+<body>
+    <nav class="navbar bg-body-tertiary fixed-top shadow p-3 mb-5 bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Thabang@Cars4u</a>
+            <button class="navbar-toggler border border-0" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar"
+                aria-labelledby="offcanvasNavbarLabel">
+                <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body">
+                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                        <li class="nav-item">
+                            Admin page
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/signin">Sign in/sign out</a>
+                        </li>
+                    </ul>
+                    <form class="d-flex mt-3" role="search">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </nav><br><br><br><br>
+
+    {% block content %}{% endblock %}
+
+    <div class="container">
+        <footer class="py-5 border-top">
+            <div class="row">
+                <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 mb-4">
+                    <h4 class="d-inline-flex align-items-center mb-3 text-body-emphasis text-decoration-none" href="/"
+                        aria-label="Bootstrap">
+                        <ion-icon name="finger-print" style="font-size: 64px;"></ion-icon>
+                        Thabang@Cars4u
+                    </h4>
+                    <p>Need a new or Pre-owned cars? Thabang4u can help you!</p>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 mb-3">
+                    <h5>Contact Us</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">
+                                87178 27 Zone F Seshego 0742</a></li>
+                        <li class="nav-item mb-2"><a href="mailto:spacemilkza@gmail.com"
+                                class="nav-link p-0 text-body-secondary">spacemilkza@gmail.com</a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="https://wa.me/27658712480" target="_blank"
+                                class="nav-link p-0 text-body-secondary">+27 65 871
+                                2480</a>
+                        </li>
+                    </ul>
+                    <ul class="list-inline py-3">
+                        <li class="list-inline-item">
+                            <a class="link-body-emphasis" target="_blank" href="https://wa.me/27786190157">
+                                <ion-icon name="logo-whatsapp" style="font-size: 25px"></ion-icon>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="link-body-emphasis" target="_blank" href="#">
+                                <ion-icon name="logo-facebook" style="font-size: 25px"></ion-icon>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="link-body-emphasis" target="_blank" href="#">
+                                <ion-icon name="logo-instagram" style="font-size: 25px"></ion-icon>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a class="link-body-emphasis" target="_blank" href="#">
+                                <ion-icon name="logo-tiktok" style="font-size: 25px"></ion-icon>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 mb-3">
+                    <h5>Services</h5>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2">
+                            <a href="" class="nav-link p-0 text-body-secondary">Company
+                                Registration
+                            </a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a href="" class="nav-link p-0 text-body-secondary">Web Development</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-12 col-sm-12 col-md-12 col-lg-3 col-xl-3 col-xxl-3 mb-3">
+                    <h5>Working Hours</h5>
+                    <table class="table table-borderless flex-column">
+                        <tr>
+                            <td>Mon - Fri</td>
+                            <td>09:00 - 17:00</td>
+                        </tr>
+                        <tr>
+                            <td>Sat</td>
+                            <td>09:00 - 15:00</td>
+                        </tr>
+                        <tr>
+                            <td>Public Holidays</td>
+                            <td>09:00 - 12:00</td>
+                        </tr>
+                        <tr>
+                            <td>Sun</td>
+                            <td>Closed</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="justify-content-between py-4 my-4">
+                <p>&copy;2024 <b>Spacemilk Pty Ltd</b></p>
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <a class="link-body-emphasis" href="#">
+                            Terms of Use
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="link-body-emphasis" href="#">
+                            Commercial Terms
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a class="link-body-emphasis" href="#">
+                            Privacy Policy
+                        </a>
+                    </li>
+                </ul>
+                <p>
+                    Spacemilk Pty Ltd (0000 0000 0000/ 07) is registered in South Africa.
+                </p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>

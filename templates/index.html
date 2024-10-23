@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+{% block title %} Homepage {% endblock %}
+
+{% block content %}
+<main class="container">
+  <div class="row">
+    <aside class="col-3">
+      <div class="d-flex flex-column flex-shrink-0  py-3 bg-danger-subtle">
+        <article>
+          <section>
+            <form class="p-3">
+              <header>
+                <h5 for="exampleDataList" class="form-label"><b>Find new & used cars for sale</b></h5>
+              </header>
+              <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Search anything...">
+              <datalist id="datalistOptions">
+                <option value="San Francisco">
+                <option value="New York">
+                <option value="Seattle">
+                <option value="Los Angeles">
+                <option value="Chicago">
+              </datalist><br>
+              <p>Search By:</p>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1">Price</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">Monthly Repayment</label>
+              </div><br><br>
+              <div class="row">
+                <div class="mb-3 col">
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Min Price</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+                <div class="mb-3 col">
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Max Price</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Body Type</option>
+                {% for y in body_type %}
+                <option value="">{{y.title()}}</option>
+                {% endfor %}
+              </select><br>
+              <div class="row">
+                <div class="mb-3 col">
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Min Year</option>
+                    {% for x in range(2008, 2025) %}
+                    <option value="1">{{x}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="mb-3 col">
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Max Year</option>
+                    {% for x in range(2008, 2025) %}
+                    <option value="1">{{x}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="mb-3 col">
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Min Mileage</option>
+                    {% for x in range(1000, 150000, 10000) %}
+                    <option value="1">{{x}}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <div class="mb-3 col">
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Max Mileage</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="mb-3 col">
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>Manual/Automatic</option>
+                    <option value="1">Manual</option>
+                    <option value="2">Automatic</option>
+                  </select>
+                </div>
+                <div class="mb-3 col">
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected>New/Used</option>
+                    <option value="1">New</option>
+                    <option value="2">Used</option>
+                  </select>
+                </div>
+              </div><br>
+              <input type="submit" class="btn btn-danger" value="search" />
+            </form>
+          </section>
+        </article><br><br>
+      </div>
+    </aside>
+    <div class="col-9">
+      <div class="position-relative overflow-hidden p-2 text-center bg-body-tertiary"
+        style="background-image: url('/imgs/cover.jpg'); background-size: 100%;">
+        <div class="p-lg-3 mx-auto my-3"><br><br><br><br><br><br>
+          <h1 class="display-5 fw-bold visually-hidden">Thabang@Cars4u</h1>
+          <p class="fw-normal mb-3 visually-hidden">
+            Need a new or Pre-owned cars? Thabang4u can help you!
+          </p><br><br>
+          <div>
+            <a href="/apply" class="btn btn-danger">CHECK WHICH CAR YOU QUALIFY FOR</a>
+          </div>
+
+        </div>
+      </div>
+      <article class="mt-4">
+        <header>
+          <ul class="list-inline">
+            <li class="list-inline-item">
+              <p>Sort by:</p>
+            </li>
+            <li class="list-inline-item"><select class="form-select border border-secondary"
+                aria-label="Default select example">
+                <option selected>price</option>
+                <option value="1">year</option>
+                <option value="2">mileage</option>
+              </select>
+            </li>
+            <li class="list-inline-item"><select class="form-select border border-secondary"
+                aria-label="Default select example">
+                <option selected>Descending</option>
+                <option value="1">Ascending</option>
+              </select>
+            </li>
+          </ul>
+        </header>
+        <section>
+          <div class="row g-3">
+            {% for x in car_inventory %}
+            <div class="col-6 col-sm-6 col-md-6 col-lg-4 col-xl-4 col-xxl-4 mb-4">
+              <!--a href="/notifications"-->
+              <div class="card border border-0">
+                <img src="./imgs/{{x['banner']}}" class="border border-0" alt="...">
+                <div class="card-body" style="box-shadow: none; padding-left: 0%; padding-right: 0%;">
+                  <p class="card-text" style="text-transform: uppercase;">
+                    <small>{{x['title']}}&nbsp;<span class="badge text-bg-secondary">{%if x["new"] %} NEW {% else %}
+                        USED {% endif %}</span></small>
+                  </p>
+                  <div>
+                    <ul class="list-inline">
+                      <li class="list-inline-item">{{x['mileage']}}km</li>
+                      <li class="list-inline-item">{{x['transmission']}}</li>
+                      <li class="list-inline-item">{{x['fuel_type']}}</li>
+                    </ul>
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <h6 class="card-text "><b><span class="text-danger">R{{x['price']}}</span>{% if True
+                        %}&nbsp;<s>R{{(x['price']*1.1)|round|int}}</s>{% endif %}</b>
+                    </h6>
+                  </div>
+                </div>
+              </div>
+              <!--/a-->
+            </div>
+            {% endfor %}
+          </div>
+          <footer>
+            <nav aria-label="Page navigation example">
+              <ul class="pagination justify-content-center py-3">
+                <li class="page-item disabled">
+                  <a class="page-link text-dark">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link text-dark" href="#">1</a></li>
+                <li class="page-item"><a class="page-link text-dark" href="#">2</a></li>
+                <li class="page-item"><a class="page-link text-dark" href="#">3</a></li>
+                <li class="page-item">
+                  <a class="page-link text-dark" href="#">Next</a>
+                </li>
+              </ul>
+            </nav>
+          </footer>
+        </section><br>
+      </article>
+      <article hidden="true">
+        <header>
+          <h3>Priced to go</h3>
+        </header>
+        <section>
+          <ol>
+            <li>list of popular, personalised or nearby stores</li>
+          </ol>
+        </section>
+      </article>
+      <article>
+        <header>
+          <h3><strong>How to apply for a car finance</strong></h3>
+          <p>In order to be eligible for vehicle finance, you as the applicant must:</p>
+        </header>
+        <section class="py-2">
+          <ul>
+            <li>be over the age of 18</li>
+            <li>be a South African citizen or foreign national with permanent residencyy</li>
+            <li>have a valid driving license</li>
+            <li>have an income of at least <mark>R7 500</mark> per month</li>
+          </ul>
+        </section>
+      </article>
+    </div>
+  </div>
+</main>
+{% endblock %}

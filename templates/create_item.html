@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %} Company Registration{% endblock %}
+
+{% block content %}
+<main class="container">
+  <header class="text-center">
+    <h2>add new item</h2>
+  </header><br><br>
+  <article class="row">
+    <form class="col-6 bg-danger-subtle p-3 m-auto">
+      <section>
+        <header class="py-1">
+          <h4>Estimate your salary information</h4>
+        </header>
+        <div class="row">
+          <div class="col">
+            salary *
+            <input type="number" min="0" class="form-control" placeholder="salary per month" aria-label="First name"
+              required>
+          </div>
+          <div class="col">
+            credit score
+            <input type="number" min="0" class="form-control" placeholder="credit score" aria-label="Last name">
+          </div>
+        </div>
+      </section><br>
+      <section>
+        <div class="row">
+          <div class="col">
+            name*
+            <input type="text" class="form-control" placeholder="name" aria-label="First name">
+          </div>
+          <div class="col">
+            cellphone number*
+            <input type="tel" min="0" class="form-control" placeholder="phone number" aria-label="Last name">
+          </div>
+          <div class="col">
+            email address*
+            <input type="email" class="form-control" placeholder="email" aria-label="Last name">
+          </div>
+        </div>
+      </section><br>
+      <footer>
+        <input type="submit" class="btn btn-danger" />
+      </footer>
+    </form>
+  </article><br><br>
+</main>
+{% endblock %}
